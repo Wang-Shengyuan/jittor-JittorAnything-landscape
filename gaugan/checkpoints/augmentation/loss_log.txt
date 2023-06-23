@@ -1,0 +1,20 @@
+================ Training Loss (Tue May 23 11:35:24 2023) ================
+(epoch: 1, iters: 100, time: 0.194) KLD: 2.580 GAN: -0.250 GAN_Feat: 15.575 VGG: 5.611 D_Fake: 1.504 D_real: 1.190 
+(epoch: 1, iters: 200, time: 0.193) KLD: 0.482 GAN: 0.055 GAN_Feat: 4.417 VGG: 6.829 D_Fake: 0.946 D_real: 1.043 
+(epoch: 1, iters: 300, time: 0.194) KLD: 0.339 GAN: 0.238 GAN_Feat: 9.107 VGG: 6.094 D_Fake: 0.804 D_real: 1.221 
+(epoch: 1, iters: 400, time: 0.188) KLD: 1.046 GAN: -0.055 GAN_Feat: 8.605 VGG: 7.042 D_Fake: 1.065 D_real: 0.938 
+================ Training Loss (Tue May 23 11:39:37 2023) ================
+================ Training Loss (Tue May 23 20:40:29 2023) ================
+================ Training Loss (Thu Jun 22 11:41:49 2023) ================
+(epoch: 1, iters: 100, time: 0.196) KLD: 0.180 GAN: 0.363 GAN_Feat: 13.903 VGG: 5.558 D_Fake: 0.864 D_real: 1.403 
+(epoch: 1, iters: 200, time: 0.193) KLD: 0.647 GAN: -0.021 GAN_Feat: 10.666 VGG: 6.919 D_Fake: 1.039 D_real: 0.914 
+(epoch: 1, iters: 300, time: 0.193) KLD: 1.494 GAN: 0.239 GAN_Feat: 9.044 VGG: 6.180 D_Fake: 0.972 D_real: 1.289 
+(epoch: 1, iters: 400, time: 0.194) KLD: 0.829 GAN: 0.221 GAN_Feat: 8.074 VGG: 6.991 D_Fake: 0.802 D_real: 1.094 
+(epoch: 1, iters: 500, time: 0.196) KLD: 0.391 GAN: 0.331 GAN_Feat: 12.651 VGG: 6.785 D_Fake: 0.706 D_real: 0.873 
+(epoch: 1, iters: 600, time: 0.195) KLD: 0.672 GAN: 0.172 GAN_Feat: 14.228 VGG: 5.299 D_Fake: 1.002 D_real: 0.528 
+(epoch: 1, iters: 700, time: 0.196) KLD: 0.484 GAN: 0.238 GAN_Feat: 11.305 VGG: 6.538 D_Fake: 0.944 D_real: 0.950 
+(epoch: 1, iters: 800, time: 0.196) KLD: 0.382 GAN: 0.819 GAN_Feat: 12.834 VGG: 6.763 D_Fake: 0.613 D_real: 0.544 
+(epoch: 1, iters: 900, time: 0.196) KLD: 1.790 GAN: 0.153 GAN_Feat: 11.547 VGG: 6.893 D_Fake: 1.250 D_real: 0.554 
+(epoch: 1, iters: 1000, time: 0.202) KLD: 1.058 GAN: 0.360 GAN_Feat: 12.074 VGG: 6.541 D_Fake: 1.106 D_real: 0.499 
+(epoch: 1, iters: 1100, time: 0.196) KLD: 0.493 GAN: 1.081 GAN_Feat: 13.233 VGG: 5.737 D_Fake: 0.578 D_real: 0.593 
+(epoch: 1, iters: 1200, time: 0.195) KLD: 1.725 GAN: 0.742 GAN_Feat: 14.052 VGG: 6.451 D_Fake: 0.515 D_real: 0.457 
