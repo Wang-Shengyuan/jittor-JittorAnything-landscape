@@ -1,5 +1,0 @@
-jittor
-scipy
-matplotlib
-dominate
-ipdb
