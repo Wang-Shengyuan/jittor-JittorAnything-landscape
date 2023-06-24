@@ -129,7 +129,6 @@ $$
 * $CAP-VSTNet$：600 epoch + finetune（模型训练 $190$ 轮次 + 进行 finetune）
 
 
-
 ## 安装
 
 本项目主要运行在单张卡的 3090 上，200个 epoch 的训练周期一般为 4~5 天。
@@ -142,17 +141,22 @@ $$
 
 #### 安装依赖
 
-可以进入任意目录执行以下命令安装依赖（ jittor 框架请遵循官网给出的安装指导）
+可以进入相应目录执行以下命令安装依赖（ jittor 框架请遵循官网给出的安装指导）
 
+在`gaugan`目录下执行
 ```
 pip install -r requirements.txt
 ```
 
-#### 数据处理
+#### 数据预处理
 
 数据目录我们没有上传，请遵循赛事公告进行[下载](https://cloud.tsinghua.edu.cn/f/1d734cbb68b545d6bdf2/?dl=1)。在本次比赛中，我们没有采取更多的数据预处理操作，裁剪、正则化等操作在项目代码中已经有所体现。
 
 预训练模型我们采用的是 `Jittor` 框架自带的 `vgg19` 模型，无需额外下载，在代码运行的过程中会载入到内存里。
+
+下载后将label与img的映射关系（*label_to_img.json*）放置在`gaugan`目录下，测试集保存至`gaugan/data/val_A_labels_resized`
+
+风格迁移前的图片保存在`CAP-VSTNet/data/content`，参考风格图片保存在`CAP-VSTNet/data/style`，
 
 ## 训练
 
