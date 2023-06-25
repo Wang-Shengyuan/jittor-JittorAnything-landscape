@@ -9,9 +9,9 @@
 
 ## 队伍成员及分工
 
-* 李想：负责 $CAP-VSTNet$ `FPSE`的实现与仓库维护
-* 王圣远：负责 $CAP-VSTNet$ 训练和转换的`jittor`实现，尝试图像美学质量评估（Image AestheticQuality Assessment）
-* 汪晗阳：
+* 李想：负责 $CAP-VSTNet$ 网络结构复现与报告撰写
+* 王圣远：负责 $CAP-VSTNet$训练和转换的`jittor`实现，尝试图像美学质量评估（Image AestheticQuality Assessment），报告撰写
+* 汪晗阳：负责 $CAP-VSTNet$ 数据处理和优化实现与报告撰写
 
 ## 实现效果
 
