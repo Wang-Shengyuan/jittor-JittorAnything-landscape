@@ -1,7 +1,6 @@
 import jittor as jt
 from jittor import init
 from jittor import nn
-import torch
 import numpy as np
 from PIL import Image
 
@@ -98,18 +97,17 @@ class cWCT(nn.Module):
 
     def cholesky_dec(self, conv, invert=False):
         cholesky = jt.linalg.cholesky
-        try:
-            L = cholesky(conv)
-        except RuntimeError:
-            iden = torch.eye(conv.shape[(- 1)]).to(conv.device)
-            eps = self.eps
-            while True:
-                try:
-                    conv = (conv + (iden * eps))
-                    L = cholesky(conv)
-                    break
-                except RuntimeError:
-                    eps = (eps + self.eps)
+        L = cholesky(conv)
+        # except RuntimeError:
+        #     iden = torch.eye(conv.shape[(- 1)]).to(conv.device)
+        #     eps = self.eps
+        #     while True:
+        #         try:
+        #             conv = (conv + (iden * eps))
+        #             L = cholesky(conv)
+        #             break
+        #         except RuntimeError:
+        #             eps = (eps + self.eps)
         if invert:
             L = jt.linalg.inv(L)
         return L.to(conv.dtype)

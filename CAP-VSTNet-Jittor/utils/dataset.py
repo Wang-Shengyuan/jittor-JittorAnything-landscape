@@ -1,7 +1,5 @@
-from jittor.dataset import DataLoader
 import os.path
 import random
-from torchvision import transforms
 from PIL import Image
 import jittor as jt
 from PIL import ImageFile
@@ -52,7 +50,7 @@ class ImageFolder(jt.dataset.Dataset):
             raise (RuntimeError("Found 0 images in: " + root + "\nSupported image extensions are: " + ",".join(IMG_EXTENSIONS)))
 
         self.transform = transform
-        self.to_tensor = transforms.Compose([transforms.ToTensor()])
+        self.to_tensor = jt.transform.Compose([jt.transform.ToTensor()])
         self.use_lap = use_lap
 
     def __getitem__(self, index):
@@ -112,14 +110,14 @@ def collate_fn(batch):
 
 def get_data_loader_folder(input_folder, batch_size, new_size=288, height=256, width=256, use_lap=False, num_workers=None):
     transform_list = []
-    transform_list = [transforms.RandomCrop((height, width))] + transform_list
-    transform_list = [transforms.Resize(new_size)] + transform_list
-    transform = transforms.Compose(transform_list)
+    transform_list = [jt.transform.RandomCrop((height, width))] + transform_list
+    transform_list = [jt.transform.Resize(new_size)] + transform_list
+    transform = jt.transform.Compose(transform_list)
     dataset = ImageFolder(input_folder, transform=transform, use_lap=use_lap)
     
     if num_workers is None:
         num_workers = 2*batch_size
-    loader = DataLoader(dataset=dataset, batch_size=batch_size, drop_last=True, num_workers=num_workers, sampler=InfiniteSamplerWrapper(dataset), collate_fn=collate_fn)
+    loader = jt.dataset.DataLoader(dataset=dataset, batch_size=batch_size, drop_last=True, num_workers=num_workers, sampler=InfiniteSamplerWrapper(dataset), collate_fn=collate_fn)
     return loader
 
 

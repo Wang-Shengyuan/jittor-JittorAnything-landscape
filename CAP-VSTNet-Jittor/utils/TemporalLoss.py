@@ -35,7 +35,7 @@ class TemporalLoss(nn.Module):
                  motion_level=8, shift_level=10):
 
         super(TemporalLoss, self).__init__()
-        self.MSE = torch.nn.MSELoss()
+        self.MSE = nn.MSELoss()
 
         self.data_sigma = data_sigma
         self.data_w = data_w

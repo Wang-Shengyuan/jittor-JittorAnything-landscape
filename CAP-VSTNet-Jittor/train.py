@@ -1,7 +1,5 @@
 import argparse
 import os
-import torch
-import torch.nn as nn
 import numpy as np
 import datetime
 from utils.dataset import get_data_loader_folder
@@ -22,7 +20,7 @@ parser.add_argument('--vgg_ckpoint', type=str, default='checkpoints/vgg_normalis
 # Dataset
 parser.add_argument('--train_content', default='/home/challenge/Jittor/CAP-VSTNet/data/imgs', help='Directory to dataset A')
 parser.add_argument('--train_style', default='/home/challenge/Jittor/CAP-VSTNet/data/imgs', help='Directory to dataset B')
-parser.add_argument('--batch_size', type=int, default=8)
+parser.add_argument('--batch_size', type=int, default=2)
 parser.add_argument('--new_size', type=int, default=512)
 parser.add_argument('--crop_size', type=int, default=256)
 parser.add_argument('--use_lap', type=bool, default=True)
@@ -37,8 +35,8 @@ parser.add_argument('--lap_weight', type=float, default=1500)
 parser.add_argument('--rec_weight', type=float, default=10)
 parser.add_argument('--temporal_weight', type=float, default=60)
 
-parser.add_argument('--training_iterations', type=int, default=16000)
-parser.add_argument('--fine_tuning_iterations', type=int, default=1000)
+parser.add_argument('--training_iterations', type=int, default=600)
+parser.add_argument('--fine_tuning_iterations', type=int, default=50)
 parser.add_argument("--resume", action="store_true", default=False)
 
 # Log

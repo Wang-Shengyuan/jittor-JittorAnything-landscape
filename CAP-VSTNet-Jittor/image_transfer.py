@@ -1,8 +1,6 @@
 import argparse
 import os
-import torch
 from PIL import Image
-from torchvision import transforms
 import torchvision.utils as utils
 from utils.utils import img_resize, load_segment
 import numpy as np
@@ -61,7 +59,7 @@ RevNetwork.eval()
 from models.cWCT import cWCT
 cwct = cWCT()
 
-with open('./data/label_to_img.json', 'r') as f:
+with open('./data/img_to_img.json', 'r') as f:
     ref_dict = json.load(f)
     for line in f:
         a = line.strip().split(',')

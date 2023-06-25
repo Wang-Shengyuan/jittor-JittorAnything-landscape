@@ -66,7 +66,7 @@ class residual_block(nn.Module):
     def init_layers(self):
         for m in self.conv:
             if isinstance(m, nn.Conv):
-                m.bias.data.zero_()
+                m.bias = jt.zeros(m.bias.shape)
 
     def execute(self, x):
         x1 = x[0]

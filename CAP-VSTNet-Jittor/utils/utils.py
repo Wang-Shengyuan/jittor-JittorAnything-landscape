@@ -1,5 +1,4 @@
 import os.path
-from jittor import transforms
 from PIL import Image
 import jittor as jt
 import jittor.utils as jutils
@@ -144,7 +143,7 @@ def load_segment(image_path, size=None):
 
     if size is not None:
         w, h = size
-        transform = transforms.Resize((h, w), interpolation=Image.NEAREST)
+        transform = jt.transform.Resize((h, w), interpolation=Image.NEAREST)
         image = transform(image)
 
     image = np.array(image)
