@@ -10,12 +10,12 @@
 ## 队伍成员及分工
 
 * 李想：负责 $CAP-VSTNet$ 网络结构复现与报告撰写
-* 王圣远：负责 $CAP-VSTNet$训练和转换的`jittor`实现，尝试图像美学质量评估（Image AestheticQuality Assessment），报告撰写
+* 王圣远：负责 $CAP-VSTNet$ 训练和转换的 `jittor` 实现，尝试图像美学质量评估（Image AestheticQuality Assessment），报告撰写
 * 汪晗阳：负责 $CAP-VSTNet$ 数据处理和优化实现与报告撰写
 
 ## 实现效果
 
-截止到2023年6月25日，我们采用的算法在 $A$ 榜排名第 $7$，得分 $0.5852$，提交 $request\_{id}$ 为 $2023062410301698977686$。
+截止到2023年6月25日，我们采用的算法在 $A$ 榜排名第 $8$，得分 $0.5852$，提交 $request\_id$ 为 $2023062410301698977686$。
 
 我们在训练集上利用 $CAP-VSTNet$ 实现的风格迁移效果如下（第一行为原图像，第二行为参考风格图像，第三行为输出图像）：
 
@@ -26,7 +26,12 @@
 我们在测试集上实现的效果如下（左上为语义标签图，右上为参考风格图，左下为 $GauGAN$ 生成的图像，右下为在 $GauGAN$ 基础上利用 $CAP-VSTNet$ 进行风格迁移后生成的图像）：
 
 <center>
-<img src="./assets/compare.jpg" alt="image-20220629160159114" style="zoom: 60%;" />
+<img src="./assets/compare.jpg" alt="image-20220629160159114" style="zoom: 67%;" />
+</center>
+
+
+<center>
+<img src="./assets/compare2.png" alt="image-20220629160159114" style="zoom: 60%;" />
 </center>
 
 
@@ -126,12 +131,14 @@ $$
 此处模型的一些超参数为：
 
 * $GauGAN$：190 epoch（模型训练 $190$ 轮次）
-* $CAP-VSTNet$：600 epoch + finetune（模型训练 $190$ 轮次 + 进行 finetune）
+* $CAP-VSTNet$：600 epoch + finetune（模型训练 $600$ 轮次 + 进行 $50$ 轮次 finetune）
 
 
 ## 安装
 
-本项目主要运行在单张卡的 3090 上，200个 epoch 的训练周期一般为 4~5 天。
+本项目主要运行在单张卡的 3090 上，
+* $GauGAN$ 200 个 epoch 的训练周期一般为 4~5 天；
+* $CAP-VSTNet$ 1000 个 epoch 的训练周期一般在 4 小时以内。
 
 #### 运行环境
 
@@ -160,7 +167,9 @@ pip install -r requirements.txt
 
 ## 训练
 
-在单卡上训练，只需执行以下命令（针对 $SPADE$ 和 $FPSE$ 均可）：
+### $GauGAN$
+
+在单卡上训练，只需在目录 `gaugan/` 下执行以下命令：
 
 ```bash
 python train.py  \
@@ -174,11 +183,17 @@ python train.py  \
 --use_vae
 ```
 
-因为受平台算力的限制 （单卡3090），$FPSE$ 算法需要更高的参数量，也就需要更大的GPU内存。在实际操作中，$FPSE$ 只能使用 `batchsize = 1` 的梯度下降，导致模型训练效果较佳，但是泛化性能很差；相比之下，$SPADE$ 需要的模型参数量更小，可以使用 `batchsize = 4` 的梯度下降，相应地在测试集上的效果也就更好。我们最终是选择了$SPADE$ 算法的结果上交比赛平台。
+### $CAP-VSTNet$
+
+在单卡上训练，只需在目录 `CAP-VSTNet-Jittor/` 下执行以下命令：
+
+```bash
+python train.py
+```
 
 ## 推断
 
-在单卡上进行测试，只需执行以下命令（针对 $SPADE$ 和 $FPSE$ 均可）：
+在单卡上进行测试，只需执行以下命令：
 
 ```bash
 python test.py  \
